@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import FadeIn from "react-fade-in";
 
 interface Props {
   title: string;
@@ -18,15 +19,19 @@ const Section: React.FC<Props> = ({
 }) => {
   return (
     <Wrap bgImage={backgroundImg}>
-      <ItemText>
-        <h1>{title}</h1>
-        <p>{description}</p>
-      </ItemText>
+      <FadeIn delay={500} visible={true}>
+        <ItemText>
+          <h1>{title}</h1>
+          <p>{description}</p>
+        </ItemText>
+      </FadeIn>
       <Buttons>
-        <ButtonGroup>
-          <LeftButton>{leftBtnText}</LeftButton>
-          {rightBtnText && <RightButton>{rightBtnText}</RightButton>}
-        </ButtonGroup>
+        <FadeIn delay={500} visible={true}>
+          <ButtonGroup>
+            <LeftButton>{leftBtnText}</LeftButton>
+            {rightBtnText && <RightButton>{rightBtnText}</RightButton>}
+          </ButtonGroup>
+        </FadeIn>
         <DownArrow src="/images/down-arrow.svg" />
       </Buttons>
     </Wrap>

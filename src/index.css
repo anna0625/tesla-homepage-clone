@@ -36,16 +36,18 @@ h5 {
 }
 
 li,
+p,
+a,
 button,
 label,
 input,
-p,
 pre {
   font-size: 2rem;
 }
 
-a {
-  color: white;
+a,
+link {
+  color: rgb(255, 255, 255);
   text-decoration: none;
 }
 
