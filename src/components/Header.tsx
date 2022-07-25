@@ -1,24 +1,73 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 // import { Link } from "react-router-dom";
 import MenuIcon from "@material-ui/icons/Menu";
+import CloseIcon from "@material-ui/icons/Close";
+// import { NavLink } from "react-router-dom";
+// import { selectCars } from "../features/car/carSlice";
+// import { useSelector } from "react-redux";
 
 const Header: React.FC = () => {
+  const [burgerOpen, setBurgerOpen] = useState(false);
+  // const cars = useSelector(selectCars);
+
   return (
     <>
       <Container>
         <img src="/images/logo.svg" alt="" />
         <Menu>
-          <a href="/">Model S</a>
-          <a href="/">Model 3</a>
-          <a href="/">Model X</a>
+          {/* {cars &&
+            cars.map((car: string, index: number) => (
+              <a href="/" key={index}>
+                {car}
+              </a>
+            ))} */}
+          {/* <NavLink to="#section-1">Model S</NavLink> */}
+          <a href="#section-1">Model S</a>
+          <a href="#section-2">Model 3</a>
+          <a href="/">Model x</a>
           <a href="/">Model Y</a>
         </Menu>
         <RightMenu>
           <a href="/">Shop</a>
           <a href="/">Account</a>
-          <CustomMenu />
+          <CustomMenu onClick={() => setBurgerOpen(true)} />
         </RightMenu>
+        <BurgerNav show={burgerOpen}>
+          <CloseWrapper>
+            <CustomClose onClick={() => setBurgerOpen(false)} />
+          </CloseWrapper>
+          {/* {cars &&
+            cars.map((car: string, index: number) => (
+              <li key={index}>
+                <a href="/"> {car}</a>
+              </li>
+            ))} */}
+          <li>
+            <a href="/">Existing Inventory</a>
+          </li>
+          <li>
+            <a href="/">Used Inventory</a>
+          </li>
+          <li>
+            <a href="/">Trade-in</a>
+          </li>
+          <li>
+            <a href="/">Cybertruck</a>
+          </li>
+          <li>
+            <a href="/">Existing Inventory</a>
+          </li>
+          <li>
+            <a href="/">Existing Inventory</a>
+          </li>
+          <li>
+            <a href="/">Existing Inventory</a>
+          </li>
+          <li>
+            <a href="/">Existing Inventory</a>
+          </li>
+        </BurgerNav>
       </Container>
     </>
   );
@@ -68,5 +117,39 @@ const RightMenu = styled.div`
 `;
 
 const CustomMenu = styled(MenuIcon)`
+  cursor: pointer;
+`;
+
+const BurgerNav = styled.div<{ show: boolean }>`
+  position: fixed;
+  top: 0px;
+  bottom: 0px;
+  right: 0px;
+  background-color: white;
+  width: 300px;
+  z-index: 100;
+  color: black;
+  list-style: none;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  text-align: start;
+  transform: ${(props) => (props.show ? "translateX(0)" : "translateX(100%)")};
+  transition: transform 0.3s ease-in;
+  li {
+    padding: 15px 0px; // top and bottom , left and right
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    a {
+      font-weight: 400;
+    }
+  }
+`;
+
+const CloseWrapper = styled.div`
+  display: flex;
+  justify-content: flex-end;
+`;
+
+const CustomClose = styled(CloseIcon)`
   cursor: pointer;
 `;

@@ -18,6 +18,7 @@ const Home: React.FC = () => {
         <ScrollPage>
           <Animator animation={batch(Fade(), Move(), Sticky())}>
             <Section
+              id="section-1"
               title="Model S"
               description="Order Online for Touchless Delivery"
               backgroundImg="model-s.jpg"
@@ -29,6 +30,7 @@ const Home: React.FC = () => {
         <ScrollPage>
           <Animator animation={batch(Fade(), Move(), Sticky())}>
             <Section
+              id="section-2"
               title="Model Y"
               description="Order Online for Touchless Delivery"
               backgroundImg="model-y.jpg"

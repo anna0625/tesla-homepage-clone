@@ -3,6 +3,7 @@ import styled from "styled-components";
 import FadeIn from "react-fade-in";
 
 interface Props {
+  id?: string;
   title: string;
   description: string;
   backgroundImg: string;
@@ -11,6 +12,7 @@ interface Props {
 }
 
 const Section: React.FC<Props> = ({
+  id,
   title,
   description,
   backgroundImg,
@@ -18,7 +20,7 @@ const Section: React.FC<Props> = ({
   rightBtnText,
 }) => {
   return (
-    <Wrap bgImage={backgroundImg}>
+    <Wrap bgImage={backgroundImg} id={id}>
       <FadeIn delay={500} visible={true}>
         <ItemText>
           <h1>{title}</h1>
@@ -46,7 +48,6 @@ const Wrap = styled.div<{ bgImage: string }>`
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  /* background-image: url('/images/model-s.jpg'); */
   display: flex;
   flex-direction: column;
   justify-content: space-between; //vertiical
